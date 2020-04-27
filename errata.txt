@@ -1,0 +1,5 @@
+pg 22: This is equivalent to Java’s string concatenation ("Hello,"+name+"!") but is more compact and just as efficient. 
+
+- not since Java 9 - quite a bit less efficient
+
+
