@@ -3,3 +3,4 @@ pg 22: This is equivalent to Java’s string concatenation ("Hello,"+name+"!") b
 - not since Java 9 - quite a bit less efficient
 
 
+Data classes in Kotlin - why allow var - that changes the hashCode()
