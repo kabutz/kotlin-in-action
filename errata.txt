@@ -2,4 +2,39 @@ pg 22: This is equivalent to Java’s string concatenation ("Hello,"+name+"!") b
 
 - not since Java 9 - quite a bit less efficient
 
+==================
 
+pg 19 (section 2.1.2 Functions):
+In Kotlin, most control structures, except for the loops (for, do, and do/while) are expressions.
+
+- The first 'do' should be 'while'.
+
+==================
+
+pg 178 (section 7.1.2 Overloading compound assignment operators):
+Another is to replace a var with a val, so that the plusAssign operation becomes inapplicable.
+
+- Nope. The plus operation becomes inapplicable in this case because we have no option but to modify the structure referenced by the variable, rather than the variable itself. Think of modifying a Collection, or try this code as proof.  Furthermore, if you comment out plusAssign, it won't compile.  With y as a 'var' instead, you could have either plus or plusAssign, with different semantics.
+
+data class PlusAssign(var x: Int) {
+    operator fun plus(other: PlusAssign): PlusAssign {
+        println("Calling plus")
+        return PlusAssign(x + other.x)
+    }
+    operator fun plusAssign(other: PlusAssign): Unit {
+        println("Calling plusAssign")
+        x += other.x
+    }
+}
+fun main() {
+    val y = PlusAssign(1)
+    val z = PlusAssign(2)
+    y += z  // this uses plusAssign not plus
+    println(y)
+}
+
+Output:
+Calling plusAssign
+PlusAssign(x=3)
+
+==================
