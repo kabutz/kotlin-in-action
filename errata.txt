@@ -11,6 +11,14 @@ In Kotlin, most control structures, except for the loops (for, do, and do/while)
 
 ==================
 
+p.48  (section 3.2.2 Default parameter values):
+At the end of Listing 3.2 is:
+  joinToString(list, suffix = ";", prefix = "# ")
+
+- Although 'suffix' is the correct term,the parameter is named 'postfix', so this won't compile.
+
+==================
+
 pg 178 (section 7.1.2 Overloading compound assignment operators):
 Another is to replace a var with a val, so that the plusAssign operation becomes inapplicable.
 
